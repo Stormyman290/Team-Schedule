@@ -1,0 +1,293 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "team schedule",
+            "intents": [
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "GroupScheduleIntent",
+                    "slots": [
+                        {
+                            "name": "action",
+                            "type": "AMAZON.FirstName",
+                            "samples": [
+                                "I want to {action} to {person} s schedule",
+                                "I want to {action} {person} s schedule",
+                                "{action} {person}",
+                                "do a {action}",
+                                "do an {action}",
+                                "{action}",
+                                "I want to {action}"
+                            ]
+                        },
+                        {
+                            "name": "person",
+                            "type": "AMAZON.FirstName",
+                            "samples": [
+                                "{action} {person}",
+                                "I want to {action} with {person}",
+                                "I want to do it with {person}",
+                                "{person}"
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "{action} {person} schedule",
+                        "I would like to {action} {person} schedule",
+                        "{action}",
+                        "{action} schedule",
+                        "{action} {person}",
+                        "{action} the schedule for {person}"
+                    ]
+                },
+                {
+                    "name": "PickGroupIntent",
+                    "slots": [
+                        {
+                            "name": "groupID",
+                            "type": "AMAZON.NUMBER",
+                            "samples": [
+                                "{action} group {groupID}",
+                                "{action} {groupID}",
+                                "{groupID}",
+                                "Group {groupID}"
+                            ]
+                        },
+                        {
+                            "name": "action",
+                            "type": "AMAZON.FirstName",
+                            "samples": [
+                                "I want to {action} {groupID} schedule",
+                                "{action} {groupID}",
+                                "I want to {action} {groupID}",
+                                "I want to {action}",
+                                "{action}"
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "I would like to {action} team {groupID}",
+                        "{action} team {groupID}",
+                        "{groupID}",
+                        "{action} {groupID}",
+                        "I want to {action} team {groupID}"
+                    ]
+                },
+                {
+                    "name": "ModifyScheduleIntent",
+                    "slots": [
+                        {
+                            "name": "action",
+                            "type": "AMAZON.FirstName",
+                            "samples": [
+                                "{action}"
+                            ]
+                        },
+                        {
+                            "name": "startTime",
+                            "type": "AMAZON.TIME"
+                        },
+                        {
+                            "name": "endTime",
+                            "type": "AMAZON.TIME"
+                        },
+                        {
+                            "name": "blockID",
+                            "type": "AMAZON.Airline"
+                        }
+                    ],
+                    "samples": [
+                        "{action} a block",
+                        "{action} a block from {startTime} to {endTime}",
+                        "{action} the block at {startTime}",
+                        "{action} a block from {startTime} till {endTime}",
+                        "{blockID} is never used in this system yet for some reason it is required",
+                        "{action} block ending at {endTime}",
+                        "{action} block starting at {startTime}",
+                        "{action} {startTime}",
+                        "{action} {startTime} {endTime}",
+                        "{action} block {startTime} to {endTime}",
+                        "{action} block {blockID}"
+                    ]
+                }
+            ],
+            "types": []
+        },
+        "dialog": {
+            "intents": [
+                {
+                    "name": "GroupScheduleIntent",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "action",
+                            "type": "AMAZON.FirstName",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.492687507058.1528416643919"
+                            }
+                        },
+                        {
+                            "name": "person",
+                            "type": "AMAZON.FirstName",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.492687507058.618819386891"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "PickGroupIntent",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "groupID",
+                            "type": "AMAZON.NUMBER",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.527480637923.848009352120"
+                            }
+                        },
+                        {
+                            "name": "action",
+                            "type": "AMAZON.FirstName",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.527480637923.1066722955551"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "ModifyScheduleIntent",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "action",
+                            "type": "AMAZON.FirstName",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.712497761222.703073177678"
+                            }
+                        },
+                        {
+                            "name": "startTime",
+                            "type": "AMAZON.TIME",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.680388938829.1065271007098"
+                            }
+                        },
+                        {
+                            "name": "endTime",
+                            "type": "AMAZON.TIME",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.680388938829.1288560469002"
+                            }
+                        },
+                        {
+                            "name": "blockID",
+                            "type": "AMAZON.Airline",
+                            "confirmationRequired": false,
+                            "elicitationRequired": false,
+                            "prompts": {}
+                        }
+                    ]
+                }
+            ],
+            "delegationStrategy": "ALWAYS"
+        },
+        "prompts": [
+            {
+                "id": "Elicit.Slot.492687507058.1528416643919",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "What do you want to do for {person} s schedule?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.492687507058.618819386891",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "With who's schedule do you want to {action} ?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.527480637923.848009352120",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Which team did you want to {action} ?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.527480637923.1066722955551",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "What do you want to do with team {groupID} ?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.712497761222.703073177678",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "What do you plan to do?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.680388938829.1065271007098",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "What is the start time?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.680388938829.1288560469002",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "What is the end time?"
+                    }
+                ]
+            }
+        ]
+    }
+}
